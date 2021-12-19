@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.walison.workshopmongo.domain.Post;
 import com.walison.workshopmongo.domain.User;
+import com.walison.workshopmongo.dto.AuthorDTO;
 import com.walison.workshopmongo.repository.PostRepository;
 import com.walison.workshopmongo.repository.UserRepository;
 
@@ -38,8 +39,8 @@ public class Instantiation implements CommandLineRunner{
 		
 		postRepository.deleteAll();
 		
-		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem!", "Viajando pra SP!", maria);
-		Post post2 = new Post(null, sdf.parse("23/05/2018"), "Acordando!", "Bom dia!", maria);
+		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem!", "Viajando pra SP!", new AuthorDTO(maria));
+		Post post2 = new Post(null, sdf.parse("23/05/2018"), "Acordando!", "Bom dia!", new AuthorDTO(maria));
 		
 		postRepository.saveAll(Arrays.asList(post1, post2));
 		
